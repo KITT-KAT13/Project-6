@@ -6,98 +6,44 @@
     <title>Simple Forum</title>
 </head>
 <body>
+    <div class="forum-container">
+        <h2>Simple Forum</h2>
     
+        <form id="forumForm">
+            <input type="text" id="username" placeholder="Your name" required />
+            <textarea id="message" placeholder="Your message..." required></textarea>
+            <button type="submit">Post Message</button>
+        </form>
     
-    
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background: #f0f0f0;
-                padding: 20px;
-            }
-    
-            .forum-container {
-                max-width: 600px;
-                margin: 0 auto;
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
-    
-            h2 {
-                text-align: center;
-            }
-    
-            form {
-                margin-bottom: 20px;
-            }
-    
-            input,
-            textarea {
-                width: 100%;
-                padding: 10px;
-                margin: 8px 0;
-                box-sizing: border-box;
-            }
-    
-            button {
-                padding: 10px 20px;
-                background: #007bff;
-                color: white;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-    
-            .message {
-                background: #eee;
-                padding: 10px;
-                margin: 10px 0;
-                border-radius: 5px;
-            }
-        </style>
-    </head>
-    
-    <body>
-    
-        <div class="forum-container">
-            <h2>School Forum</h2>
-    
-            <form id="forumForm">
-                <input type="text" id="username" placeholder="Your name" required />
-                <textarea id="message" placeholder="Your message..." required></textarea>
-                <button type="submit">Post Message</button>
-            </form>
-    
-            <div id="messages">
-                <!-- Messages will appear here -->
-            </div>
+        <div id="messages">
+            <!-- Messages will appear here -->
         </div>
+    </div>
     
-        <script>
-            const form = document.getElementById('forumForm');
-            const messagesDiv = document.getElementById('messages');
+    <script>
+        const form = document.getElementById('forumForm');
+        const messagesDiv = document.getElementById('messages');
 
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                const username = document.getElementById('username').value.trim();
-                const message = document.getElementById('message').value.trim();
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-                if (username && message) {
-                    const msgDiv = document.createElement('div');
-                    msgDiv.className = 'message';
-                    msgDiv.innerHTML = `<strong>${username}:</strong> ${message}`;
-                    messagesDiv.prepend(msgDiv);
+            if (username && message) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'message';
+                msgDiv.innerHTML = `<strong>${username}:</strong> ${message}`;
+                messagesDiv.prepend(msgDiv);
 
-                    form.reset();
-                }
-            });
-        </script>
+                form.reset();
+            }
+        });
+    </script>
     
-    </body>
+      
     
-    </html>
+    
+        
 
 </body>
 </html>
